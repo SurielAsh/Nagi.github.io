@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[学习之路，就在脚下]]></title>
+    <title><![CDATA[学习之路，已在脚下]]></title>
     <url>%2F2019%2F02%2F08%2F%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%EF%BC%8C%E5%B0%B1%E5%9C%A8%E8%84%9A%E4%B8%8B%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[感谢大家来到这个我临时搭建的博客～按照之前的设想，这个博客只是我的网站smartain.cc的一部分而已。相信不久的将来，smartain.cc将成为一个集成化的多功能开发服务站。目前正在开发中组件有三个，分别是：blog.smartain.cc ——多样化技术博客ide.smartain.cc ——完善友好智能的网页idegoogle.smartain.cc ——方便好用的谷歌镜像站希望大家继续支持smartain以后的发展，也十分感谢大家为smartain贡献力量。目前评论功能暂不开放，感谢大家的谅解。 以下是代码高亮的测试 Python：1print ("hello world") C++:12345int main()&#123;cout&lt;&lt;"hello world"&lt;&lt;endl;return 0;&#125; PHP:1echo '&lt;p&gt;Hello World&lt;/p&gt;'; Java:1System.out.println("Hello World!"); Node.js1response.end('Hello World\n');]]></content>
+      <categories>
+        <category>文章</category>
+      </categories>
+      <tags>
+        <tag>hello_world</tag>
+      </tags>
   </entry>
 </search>
