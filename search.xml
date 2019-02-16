@@ -3,12 +3,14 @@
   <entry>
     <title><![CDATA[ArchLinux下安装opencv可能遭遇的问题和解决方案]]></title>
     <url>%2F2019%2F02%2F16%2FARCH-opencv%2F</url>
-    <content type="text"><![CDATA[我的开发环境ArchLinux+gcc全家桶+Clion+opencv4 在Arch中，利用强大的包管理工具pacman通常可以解决大部分软件安装和依赖问题。但是在安装opencv时，我还是花了近一个小时的时间解决我遇到的各种奇怪问题。以下分享以下我的安装过程和各种奇怪问题的解决方案。 安装opencv在Arch中，可以直接利用pacman指令安装1sudo pacman -S opencv 同时，由于opencv对hdf5和vtk有依赖，所以也需要安装这两个包1sudo pacman -S hdf5 vtk 如果编译过程中还有问题，请根据提示安装相应的包（如libtiff等），方法相同，在此不在赘述。 配置opencvClion与CMake在需要使用opencv的C++程序的源文件中加入1#include &lt;opencv2/opencv.hpp&gt; //或其他你需要用到的组件 并修改工程文件夹中的 CMakeList.txt ，在末尾加入12find_package(OpenCV REQUIRED)target_link_libraries(MLTry $&#123;OpenCV_LIBS&#125;) Arch下遭遇的迷之问题在我的系统中，pacman将opencv的头文件安装在了 /usr/include/opencv4/opencv2 中。这就导致若编译时不指定opencv2的位置，就会导致大量依赖项的失效。为了一劳永逸的解决这个问题，我们把opencv2这个文件夹复制一份到 /usr/include/ 中，这样程序就可以直接调用这些头文件了。1sudo cp /usr/include/opencv4/opencv2/ /usr/include/opencv2 尾声一番折腾后，终于可以使用opencv的组件编写程序了。我们把Clion的图标复制到 ～/ 下，然后使用以下程序就可以打开这个png文件123456789101112131415161718#include &lt;iostream&gt;#include &lt;opencv2/opencv.hpp&gt;using namespace std;using namespace cv;int main() &#123; const char* windowName="window"; const char* imagename="clion.png"; Mat img=imread(imagename,1); if(img.empty()) &#123; cout&lt;&lt;"打开文件错误，文件不存在"; return -1; &#125; imshow(windowName,img); waitKey(0); return 0;&#125; ###如果还有其他问题，欢迎联系我（QQ:821996329）]]></content>
+    <content type="text"><![CDATA[我的开发环境ArchLinux+gcc全家桶+Clion+opencv4 在Arch中，利用强大的包管理工具pacman通常可以解决大部分软件安装和依赖问题。但是在安装opencv时，我还是花了近一个小时的时间解决我遇到的各种奇怪问题。以下分享以下我的安装过程和各种奇怪问题的解决方案。 安装opencv在Arch中，可以直接利用pacman指令安装1sudo pacman -S opencv 同时，由于opencv对hdf5和vtk有依赖，所以也需要安装这两个包1sudo pacman -S hdf5 vtk 如果编译过程中还有问题，请根据提示安装相应的包（如libtiff等），方法相同，在此不在赘述。 配置opencvClion与CMake在需要使用opencv的C++程序的源文件中加入1#include &lt;opencv2/opencv.hpp&gt; //或其他你需要用到的组件 并修改工程文件夹中的 CMakeList.txt ，在末尾加入12find_package(OpenCV REQUIRED)target_link_libraries(MLTry $&#123;OpenCV_LIBS&#125;) Arch下遭遇的迷之问题在我的系统中，pacman将opencv的头文件安装在了 /usr/include/opencv4/opencv2 中。这就导致若编译时不指定opencv2的位置，就会导致大量依赖项的失效。为了一劳永逸的解决这个问题，我们把opencv2这个文件夹复制一份到 /usr/include/ 中，这样程序就可以直接调用这些头文件了。1sudo cp /usr/include/opencv4/opencv2/ /usr/include/opencv2 尾声一番折腾后，终于可以使用opencv的组件编写程序了。我们把Clion的图标复制到 ～/ 下，然后使用以下程序就可以打开这个png文件123456789101112131415161718#include &lt;iostream&gt;#include &lt;opencv2/opencv.hpp&gt;using namespace std;using namespace cv;int main() &#123; const char* windowName="window"; const char* imagename="clion.png"; Mat img=imread(imagename,1); if(img.empty()) &#123; cout&lt;&lt;"打开文件错误，文件不存在"; return -1; &#125; imshow(windowName,img); waitKey(0); return 0;&#125; 如果还有其他问题，欢迎联系我（QQ:821996329）]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>-Linux -Clion -opencv</tag>
+        <tag>Linux</tag>
+        <tag>Clion</tag>
+        <tag>opencv</tag>
       </tags>
   </entry>
   <entry>
